@@ -1,4 +1,10 @@
-function ClickButton() {
+function ClickableButton() {
+  const [clicked, setClick] = React.useState(false);
+
+  if (clicked) {
+    return "Nothing here yet! Change this text to add more info.";
+  }
+
   return React.createElement(
     "button",
     {
@@ -11,13 +17,8 @@ function ClickButton() {
         borderRadius: "5px",
         fontSize: "1.1em",
       },
+      onClick: () => setClick(true),
     },
-    "1st React Button"
+    "Click To Reveal"
   );
 }
-
-const domContainer = document.querySelector("#root");
-
-const root = ReactDOM.createRoot(domContainer);
-
-root.render(React.createElement(ClickButton));
